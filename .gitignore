@@ -1,0 +1,40 @@
+**/node_modules/
+
+# Ignore any compiled files or binaries
+*.exe
+*.dll
+*.so
+*.dylib
+*.out
+
+# Ignore environment-specific files
+.env
+.env.local
+.env.*.local
+
+# Ignore log files and build artifacts
+*.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+build/
+
+# Ignore backend-specific files
+backend/node_modules/
+backend/.env
+backend/.env.local
+
+# Ignore frontend-specific files
+frontend/node_modules/
+frontend/.env
+frontend/.env.local
+
+# Ignore IDE and editor-specific files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp

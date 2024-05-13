@@ -1,0 +1,43 @@
+@font-face {
+    font-family: 'GothamBlack';
+    src: url('./GothamPro-Black.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'GothamBlack';
+    src: url('./GothamPro-Black.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  .gotham {
+    font-family: 'GothamBlack', sans-serif;
+  }
+  @font-face {
+    font-family: 'Aileron';
+    src:
+         url('./Aileron-SemiBold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Aileron';
+    src:
+         url('./Aileron-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Aileron';
+    src:
+         url('./Aileron-Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  .aileron{
+    font-family: 'Aileron', sans-serif;
+  }
