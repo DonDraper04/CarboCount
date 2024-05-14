@@ -139,6 +139,7 @@ const ForgotPassword = async (req, res) => {
     const content = `Your reset password code is: ${code}`;
     await entreprise.update({ verificationCode: code });
     sendMail(email, "Reset password", content);
+    res.status(200).json("verification code sent")
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

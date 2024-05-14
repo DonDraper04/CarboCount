@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { AppProvider } from './components/context/AuthContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <AppProvider>
     <App className="bg-[#F8F8F8]"/>
+    </AppProvider>
   </React.StrictMode>
 );
 
