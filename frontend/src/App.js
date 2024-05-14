@@ -29,11 +29,10 @@ function App() {
   const { user, dispatch } = useApp();
   useEffect(() => {
     const u = Cookies.get("user");
-    const uu = JSON.parse(u);
-    console.log(uu);
     if (!u) {
       return dispatch({ type: "LOUGOUT" });
     }
+    const uu = JSON.parse(u);
     try {
       fetch("http://localhost:8080/api/Entreprise/CheckToken", {
         method: "POST",
@@ -44,8 +43,11 @@ function App() {
       })
         .then((res) => {
           if (!res.ok) {
+            console.log(res);
+            Cookies.remove("user");
             return dispatch({ type: "LOUGOUT" });
           }
+          dispatch({ type: "LOGIN", payload: uu.entreprise });
         })
         .catch((error) => {
           console.log(error.message);

@@ -7,13 +7,15 @@ const {
   ForgotPassword,
   ResetPassword,
 } = require("../Controllers/EntrepriseControllers");
+const jwt = require("jsonwebtoken");
+const models = require("../models");
 const { Entreprise_Auth } = require("../requireAuth/requireAuth");
 const router = express.Router();
 
 router.post("/api/Entreprise/CreateAccountRequest", CreateRequestForAccount);
 router.post("/api/Entreprise/CreateAccount", CreateAccount);
 router.post("/api/Entreprise/login", Login);
-router.post("/api/Entreprise/CheckToken",async (req, res) => {
+router.post("/api/Entreprise/CheckToken", async (req, res) => {
   const { authorization } = req.headers;
   if (!authorization) {
     return res.status(401).json({ error: "Authorization is required" });
