@@ -66,11 +66,17 @@ module.exports = (sequelize, DataTypes) => {
     const emailRequestExists = await sequelize.models.Request.findOne({
       where: { email },
     });
-    
-    if (emailRequestExists !== null && emailRequestExists.status === "accepted") {
+
+    if (
+      emailRequestExists !== null &&
+      emailRequestExists.status === "accepted"
+    ) {
       throw new Error("Request already accepted");
     }
-    if (emailRequestExists!== null && emailRequestExists.status === "pending") {
+    if (
+      emailRequestExists !== null &&
+      emailRequestExists.status === "pending"
+    ) {
       throw new Error("Request is pending");
     }
     const requestMade = await sequelize.models.Request.create({
@@ -83,26 +89,25 @@ module.exports = (sequelize, DataTypes) => {
     return requestMade;
   };
   Entreprise.Login = async function (email, password) {
-    try{ 
+    try {
       if (!email || !password) {
-      throw new Error("All fields are required");
-    }
-    if (!validator.isEmail(email)) {
-      throw new Error("Email is not valid");
-    }
-    const entreprise = await Entreprise.findOne({ where: { email } });
-    if (!entreprise) {
-      throw new Error("Email not found");
-    }
-    const passwordMatch = await bcrypt.compare(password, entreprise.password);
-    if (!passwordMatch) {
-      throw new Error("Password is incorrect");
-    }
-    return entreprise;
+        throw new Error("All fields are required");
+      }
+      if (!validator.isEmail(email)) {
+        throw new Error("Email is not valid");
+      }
+      const entreprise = await Entreprise.findOne({ where: { email } });
+      if (!entreprise) {
+        throw new Error("Email not found");
+      }
+      const passwordMatch = await bcrypt.compare(password, entreprise.password);
+      if (!passwordMatch) {
+        throw new Error("Password is incorrect");
+      }
+      return entreprise;
     } catch (error) {
       console.error("Error:", error.message);
-   }
- 
+    }
   };
   // Define associations
   Entreprise.associate = (models) => {
@@ -110,6 +115,7 @@ module.exports = (sequelize, DataTypes) => {
     Entreprise.hasOne(models.Request, { foreignKey: "email" });
 
     // Define other associations as needed
+    Entreprise.hasMany(models.BilanCarbon, { foreignKey: "entrepriseId" });
   };
   return Entreprise;
 };

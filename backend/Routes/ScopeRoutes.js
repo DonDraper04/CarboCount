@@ -9,8 +9,8 @@ const {
 
 const router = require('express').Router();
 
-router.post('/bilan/:bilanCarbonId/scope', createScope);
-router.get('/bilan/:bilanCarbonId/scope', getAllScopesForBilanCarbon);
+router.post('/bilan/:bilanCarbonId', createScope);
+router.get('/bilan/:bilanCarbonId', getAllScopesForBilanCarbon);
 router.put('/scope/:scopeId', updateScope);
 router.delete('/scope/:scopeId', deleteScope);
 

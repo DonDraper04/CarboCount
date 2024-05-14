@@ -14,9 +14,10 @@ import VosResultats from "./components/pages/VosResultats";
 import DetailsPerScope from "./components/pages/DetailsPerScope";
 // import Login from './components/pages/Login'
 import Signup from "./components/pages/Signup";
+import HistoResultat from "./components/HistoResultat";
 // import Parameters from './components/pages/Parameters'
 import ForgotPassword from "./components/pages/ForgotPassword";
-// import CompteEntreprise from './components/pages/CompteEntreprise'
+import CompteEntreprise from "./components/pages/CompteEntreprise";
 import Cookies from "js-cookie";
 
 import { useState, useEffect } from "react";
@@ -56,6 +57,16 @@ function App() {
       console.log(error.message);
     }
   }, []);
+  const [scope11, setScope11] = useState(0);
+  const [scope12, setScope12] = useState(0);
+  const [scope13, setScope13] = useState(0);
+  const [scope14, setScope14] = useState(0);
+  const [scope21, setScope21] = useState(0);
+  const [scope22, setScope22] = useState(0);
+  const [scope31, setScope31] = useState(0);
+  const [scope32, setScope32] = useState(0);
+  const [scope33, setScope33] = useState(0);
+  const [scope34, setScope34] = useState(0);
   return (
     <Router>
       <div className="bg-[#F8F8F8]">
@@ -73,9 +84,14 @@ function App() {
             path="/login"
             element={!user ? <Login /> : <Navigate to="/" />}
           />
+
           <Route
             path="/signup"
             element={!user ? <Signup /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/account"
+            element={user ? <CompteEntreprise /> : <Navigate to="/login" />}
           />
           <Route
             path="/calculer"
@@ -88,6 +104,26 @@ function App() {
                   setScope2={setScope2}
                   scope3={scope3}
                   setScope3={setScope3}
+                  scope11={scope11}
+                  setScope11={setScope11}
+                  scope12={scope12}
+                  setScope12={setScope12}
+                  scope13={scope13}
+                  setScope13={setScope13}
+                  scope14={scope14}
+                  setScope14={setScope14}
+                  scope21={scope21}
+                  setScope21={setScope21}
+                  scope22={scope22}
+                  setScope22={setScope22}
+                  scope31={scope31}
+                  setScope31={setScope31}
+                  scope32={scope32}
+                  setScope32={setScope32}
+                  scope33={scope33}
+                  setScope33={setScope33}
+                  scope34={scope34}
+                  setScope34={setScope34}
                   totale={totale}
                   setTotale={setTotale}
                 />
@@ -106,7 +142,28 @@ function App() {
                   scope2={scope2}
                   scope3={scope3}
                   totale={totale}
+                  scope11={scope11}
+                  scope12={scope12}
+                  scope13={scope13}
+                  scope14={scope14}
+                  scope21={scope21}
+                  scope22={scope22}
+                  scope31={scope31}
+                  scope32={scope32}
+                  scope33={scope33}
+                  scope34={scope34}
                 />
+              ) : (
+                <Navigate to="/login" />
+              )
+            }
+          />
+
+          <Route
+            path="/resultats/:id"
+            element={
+              user ? (
+                <HistoResultat/>
               ) : (
                 <Navigate to="/login" />
               )
