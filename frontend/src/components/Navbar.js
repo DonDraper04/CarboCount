@@ -17,10 +17,11 @@ function Navbar() {
           <div className='h-full flex space-x-24 ml-32 items-center '>
               <NavItem to="/" isActive={activePage === '/'}>Accueil</NavItem>
               <NavItem to="/calculer" isActive={activePage === '/calculer'}>Calculer</NavItem>
-              <NavItem to="/FAQ" isActive={activePage === '/FAQ'}>FAQ</NavItem>
+              {/* <NavItem to="/FAQ" isActive={activePage === '/FAQ'}>FAQ</NavItem>
               <NavItem to="/Parametres" isActive={activePage === '/Parametres'}>Parametres</NavItem>
-              <NavItem to="/Actualites" isActive={activePage === '/Actualites'}>Actualites</NavItem>
-              
+              <NavItem to="/Actualites" isActive={activePage === '/Actualites'}>Actualites</NavItem> */}
+              <NavItem to="/account" isActive={activePage === '/account'}>Compte</NavItem>
+
           </div>
     </div>
   );

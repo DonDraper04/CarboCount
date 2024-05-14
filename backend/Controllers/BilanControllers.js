@@ -5,8 +5,9 @@ const Entreprise = db.Entreprise; // Assuming Entreprise is your Sequelize model
 // Function to create a new BilanCarbon entry related to an Entreprise
 const createBilanCarbon = async (req, res) => {
   const { entrepriseId } = req.params;
-  const { data } = req.body;
+  const data= req.body;
   try {
+    console.log(data)
     const entreprise = await Entreprise.findByPk(entrepriseId);
     if (!entreprise) {
       throw new Error("Entreprise not found");
@@ -50,6 +51,7 @@ const getBilanCarbonWithEntreprise = async (req, res) => {
 const getAllBilanCarbonForEntreprise = async (req, res) => {
  const Entreprise = req.user;
     try {
+      console.log("i am here",Entreprise)
     const bilanCarbons = await BilanCarbon.findAll({
       where: { EntrepriseId: Entreprise.id },
     });

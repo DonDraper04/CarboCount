@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "Microbiologie67",
-    "database": "projet2cp",
+    "password": "JuveJuve2927",
+    "database": "projet_2cp",
     "host": "localhost",
     "dialect": "mysql"
   },
